@@ -23,8 +23,8 @@ import { Toaster } from '@/components/ui/sonner';
 import { Badge } from '@/components/ui/badge';
 export function HomePage() {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-cloudflare/30">
-      <ThemeToggle />
+    <div className="min-h-screen bg-background text-foreground selection:bg-cloudflare/30 scroll-smooth">
+      <ThemeToggle className="fixed top-4 right-4" />
       <Toaster richColors position="top-center" />
       {/* Hero Section */}
       <section className="relative min-h-[90svh] flex items-center justify-center overflow-hidden border-b border-border/10">
@@ -50,10 +50,10 @@ export function HomePage() {
               Empowering teccle motion to lead the cybersecurity landscape through the Infinigate x Cloudflare strategic partnership.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <Button size="lg" className="bg-gradient-brand hover:opacity-90 text-white font-bold h-14 px-8 rounded-xl shadow-glow" asChild>
+              <Button size="lg" className="bg-gradient-brand hover:opacity-90 text-white font-bold h-14 px-8 rounded-xl shadow-glow transition-transform hover:scale-105" asChild>
                 <a href="#portfolio">Explore the Portfolio</a>
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 rounded-xl border-border/50" asChild>
+              <Button size="lg" variant="outline" className="h-14 px-8 rounded-xl border-border/50 hover:bg-accent/50" asChild>
                 <a href="#contact">Contact Support</a>
               </Button>
             </div>
@@ -61,7 +61,7 @@ export function HomePage() {
         </div>
       </section>
       {/* Portfolio Showcase Section */}
-      <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 scroll-mt-20">
         <SectionHeader
           badge="Connectivity Cloud"
           title="The Cloudflare Advantage"
@@ -106,9 +106,9 @@ export function HomePage() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-square md:aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gradient-brand"
+              className="relative aspect-square md:aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gradient-brand group"
             >
-              <div className="absolute inset-0 flex items-center justify-center p-12 text-center text-white">
+              <div className="absolute inset-0 flex items-center justify-center p-12 text-center text-white bg-black/10 group-hover:bg-black/0 transition-colors">
                 <div className="space-y-6">
                   <TrendingUp className="w-20 h-20 mx-auto opacity-80" />
                   <h3 className="text-3xl font-bold">Accelerate Growth</h3>
@@ -129,7 +129,7 @@ export function HomePage() {
       {/* Infinigate Edge */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="flex flex-col items-center mb-16 text-center">
-          <Badge className="mb-4 bg-infinigate text-white border-none py-1 px-4">
+          <Badge className="mb-4 bg-infinigate text-white border-none py-1 px-4 hover:bg-infinigate">
             <Award className="w-4 h-4 mr-2" /> EMEA Distributor of the Year
           </Badge>
           <SectionHeader
@@ -156,7 +156,7 @@ export function HomePage() {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="relative py-24 md:py-32 overflow-hidden bg-foreground text-background">
+      <section id="contact" className="relative py-24 md:py-32 overflow-hidden bg-foreground text-background scroll-mt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(227,6,19,0.1),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

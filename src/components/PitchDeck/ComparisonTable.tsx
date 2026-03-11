@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
 } from '@/components/ui/table';
-import { Check, X, ShieldCheck } from 'lucide-react';
+import { X, ShieldCheck } from 'lucide-react';
 const comparisons = [
   {
     feature: "Deployment Speed",
@@ -52,22 +52,25 @@ export function ComparisonTable() {
       <Table>
         <TableHeader className="bg-secondary/50">
           <TableRow className="hover:bg-transparent">
-            <TableHead className="w-1/3 py-6 font-bold text-foreground">Strategic Pivot</TableHead>
-            <TableHead className="w-1/3 py-6 font-bold text-muted-foreground">Legacy Infrastructure</TableHead>
-            <TableHead className="w-1/3 py-6 font-bold text-cloudflare">Cloudflare Advantage</TableHead>
+            <TableHead className="w-1/3 py-6 px-6 font-bold text-foreground">Strategic Pivot</TableHead>
+            <TableHead className="w-1/3 py-6 px-6 font-bold text-muted-foreground">Legacy Infrastructure</TableHead>
+            <TableHead className="w-1/3 py-6 px-6 font-bold text-cloudflare">Cloudflare Advantage</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {comparisons.map((item, idx) => (
-            <TableRow key={idx} className="group transition-colors">
-              <TableCell className="py-6 font-semibold">{item.feature}</TableCell>
-              <TableCell className="py-6 text-muted-foreground flex items-center gap-2">
-                <X className="w-4 h-4 text-destructive" /> {item.legacy}
-              </TableCell>
-              <TableCell className="py-6 bg-cloudflare/5 font-medium text-foreground">
+            <TableRow key={idx} className="group transition-colors border-b last:border-0">
+              <TableCell className="py-6 px-6 font-semibold">{item.feature}</TableCell>
+              <TableCell className="py-6 px-6 text-muted-foreground">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-cloudflare" />
-                  {item.cloudflare}
+                  <X className="w-4 h-4 text-destructive flex-shrink-0" /> 
+                  <span className="text-sm md:text-base">{item.legacy}</span>
+                </div>
+              </TableCell>
+              <TableCell className="py-6 px-6 bg-cloudflare/5 font-medium text-foreground">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-cloudflare flex-shrink-0" />
+                  <span className="text-sm md:text-base">{item.cloudflare}</span>
                 </div>
               </TableCell>
             </TableRow>
