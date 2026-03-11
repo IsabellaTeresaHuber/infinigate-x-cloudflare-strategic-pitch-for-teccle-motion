@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Award
 } from 'lucide-react';
+import { Navigation } from '@/components/PitchDeck/Navigation';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { SectionHeader } from '@/components/PitchDeck/SectionHeader';
 import { FeatureCard } from '@/components/PitchDeck/FeatureCard';
@@ -25,10 +26,11 @@ import { Badge } from '@/components/ui/badge';
 export function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-cloudflare/30 scroll-smooth">
-      <ThemeToggle className="fixed top-4 right-4" />
+      <Navigation />
+      <ThemeToggle className="fixed top-20 right-4 md:top-24" />
       <Toaster richColors position="top-center" />
       {/* Hero Section */}
-      <section className="relative min-h-[90svh] flex items-center justify-center overflow-hidden border-b border-border/10">
+      <section className="relative min-h-svh flex items-center justify-center overflow-hidden border-b border-border/10">
         <div className="absolute inset-0 bg-gradient-to-b from-infinigate/5 to-cloudflare/5 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(243,128,32,0.1),transparent_70%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -75,7 +77,7 @@ export function HomePage() {
         </div>
       </section>
       {/* Why Teccle Motion? */}
-      <section className="bg-secondary/30 border-y border-border/50">
+      <section id="opportunity" className="bg-secondary/30 border-y border-border/50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div

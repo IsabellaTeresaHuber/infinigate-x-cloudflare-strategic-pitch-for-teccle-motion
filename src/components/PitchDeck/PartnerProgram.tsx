@@ -12,7 +12,7 @@ export function PartnerProgram() {
     { title: "Build", desc: "Develop on the Workers serverless platform." }
   ];
   return (
-    <div className="space-y-16">
+    <div id="partnership" className="space-y-16 scroll-mt-32">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {paths.map((path, idx) => (
           <motion.div
