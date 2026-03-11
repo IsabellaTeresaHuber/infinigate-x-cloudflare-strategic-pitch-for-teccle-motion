@@ -1,32 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Shield, 
-  Zap, 
-  Globe, 
-  Lock, 
-  TrendingUp, 
-  Users, 
-  Rocket, 
-  Server,
-  Cloud,
+import {
+  Shield,
+  Zap,
+  Globe,
+  Lock,
+  TrendingUp,
+  Users,
+  Rocket,
   CheckCircle2,
-  ArrowRight
+  Award
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { SectionHeader } from '@/components/PitchDeck/SectionHeader';
 import { FeatureCard } from '@/components/PitchDeck/FeatureCard';
 import { ContactForm } from '@/components/PitchDeck/ContactForm';
+import { PortfolioShowcase } from '@/components/PitchDeck/PortfolioShowcase';
+import { ComparisonTable } from '@/components/PitchDeck/ComparisonTable';
+import { PartnerProgram } from '@/components/PitchDeck/PartnerProgram';
 import { Button } from '@/components/ui/button';
 import { Toaster } from '@/components/ui/sonner';
+import { Badge } from '@/components/ui/badge';
 export function HomePage() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-cloudflare/30">
       <ThemeToggle />
@@ -36,7 +31,7 @@ export function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-infinigate/5 to-cloudflare/5 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(243,128,32,0.1),transparent_70%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -56,7 +51,7 @@ export function HomePage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <Button size="lg" className="bg-gradient-brand hover:opacity-90 text-white font-bold h-14 px-8 rounded-xl shadow-glow" asChild>
-                <a href="#opportunity">Explore the Opportunity</a>
+                <a href="#portfolio">Explore the Portfolio</a>
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 rounded-xl border-border/50" asChild>
                 <a href="#contact">Contact Support</a>
@@ -65,38 +60,17 @@ export function HomePage() {
           </motion.div>
         </div>
       </section>
-      {/* The Cloudflare Advantage */}
-      <section id="opportunity" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <SectionHeader 
-          badge="Market Leading Technology"
+      {/* Portfolio Showcase Section */}
+      <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <SectionHeader
+          badge="Connectivity Cloud"
           title="The Cloudflare Advantage"
           subtitle="Cloudflare protects and accelerates any Internet-facing application with a global connectivity cloud."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <FeatureCard 
-            icon={Shield}
-            index={0}
-            title="Zero Trust Services"
-            description="Replace legacy VPNs with a faster, safer identity-based access model."
-          />
-          <FeatureCard 
-            icon={Zap}
-            index={1}
-            title="WAF & Application Security"
-            description="Enterprise-grade protection against DDoS, bots, and automated attacks."
-          />
-          <FeatureCard 
-            icon={Globe}
-            index={2}
-            title="Global Edge Network"
-            description="Deliver content faster from a massive global network spanning 300+ cities."
-          />
-          <FeatureCard 
-            icon={Cloud}
-            index={3}
-            title="Connectivity Cloud"
-            description="Simplify hybrid and multi-cloud environments with a unified control plane."
-          />
+        <PortfolioShowcase />
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold mb-10 text-center">Technical & Business Comparison</h3>
+          <ComparisonTable />
         </div>
       </section>
       {/* Why Teccle Motion? */}
@@ -109,17 +83,17 @@ export function HomePage() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <SectionHeader 
+              <SectionHeader
                 align="left"
                 title="The Reseller Opportunity"
                 subtitle="Transform your business model from transactional hardware to high-margin recursive cloud security."
               />
               <ul className="space-y-4">
                 {[
-                  "Recurring revenue with high customer retention.",
-                  "Consolidate multiple vendors into one platform.",
-                  "Fast implementation and time-to-value.",
-                  "Unrivaled brand recognition in the MSP space."
+                  "High-margin recurring revenue models.",
+                  "Fast implementation (Days vs Weeks).",
+                  "Consolidate multiple legacy vendors.",
+                  "Zero Trust architecture by default."
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-lg font-medium">
                     <CheckCircle2 className="text-cloudflare w-6 h-6 flex-shrink-0" />
@@ -128,7 +102,7 @@ export function HomePage() {
                 ))}
               </ul>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -138,32 +112,43 @@ export function HomePage() {
                 <div className="space-y-6">
                   <TrendingUp className="w-20 h-20 mx-auto opacity-80" />
                   <h3 className="text-3xl font-bold">Accelerate Growth</h3>
-                  <p className="text-lg opacity-90 max-w-sm">Join the ecosystem where Infinigate provides the technical backbone for teccle motion.</p>
+                  <p className="text-lg opacity-90 max-w-sm">Move away from low-margin hardware silos towards elite cloud services.</p>
                 </div>
               </div>
             </motion.div>
+          </div>
+          <div className="mt-24">
+            <SectionHeader
+              title="PowerUP Partner Program"
+              subtitle="Propel teccle motion to new heights with exclusive Infinigate-backed partner enablement."
+            />
+            <PartnerProgram />
           </div>
         </div>
       </section>
       {/* Infinigate Edge */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <SectionHeader 
-          badge="Distribution Excellence"
-          title="The Infinigate Edge"
-          subtitle="We don't just ship boxes. We enable your technical and commercial success."
-        />
+        <div className="flex flex-col items-center mb-16 text-center">
+          <Badge className="mb-4 bg-infinigate text-white border-none py-1 px-4">
+            <Award className="w-4 h-4 mr-2" /> EMEA Distributor of the Year
+          </Badge>
+          <SectionHeader
+            title="The Infinigate Edge"
+            subtitle="We don't just ship boxes. We enable your technical and commercial success."
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <FeatureCard 
+          <FeatureCard
             icon={Rocket}
             title="Technical Enablement"
             description="Deep-dive workshops and pre-sales engineering support from Infinigate experts."
           />
-          <FeatureCard 
+          <FeatureCard
             icon={Users}
             title="Strategic Marketing"
             description="Co-branded campaigns and lead generation support for teccle motion."
           />
-          <FeatureCard 
+          <FeatureCard
             icon={Lock}
             title="Consolidated Billing"
             description="Streamlined procurement and financial services through our partner portal."

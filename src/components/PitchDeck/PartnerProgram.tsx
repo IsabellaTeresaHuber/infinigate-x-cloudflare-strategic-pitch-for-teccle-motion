@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, BarChart3, GraduationCap, ArrowRight } from 'lucide-react';
+import { Award, Zap, BarChart3, GraduationCap, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 export function PartnerProgram() {
   const paths = [
     { title: "Resell", desc: "Standard partner path with healthy margins." },
@@ -12,7 +11,7 @@ export function PartnerProgram() {
     { title: "Build", desc: "Develop on the Workers serverless platform." }
   ];
   return (
-    <div id="partnership" className="space-y-16 scroll-mt-24">
+    <div className="space-y-16">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {paths.map((path, idx) => (
           <motion.div
@@ -36,7 +35,7 @@ export function PartnerProgram() {
           <Award className="w-48 h-48 rotate-12" />
         </div>
         <div className="relative z-10 max-w-2xl">
-          <Badge className="mb-6 bg-infinigate text-white hover:bg-infinigate/90 border-none px-4 py-1">
+          <Badge className="mb-6 bg-infinigate text-white hover:bg-infinigate border-none px-4 py-1">
             Elite Partnership Benefits
           </Badge>
           <h3 className="text-3xl md:text-4xl font-bold mb-8">
@@ -67,5 +66,12 @@ export function PartnerProgram() {
         </div>
       </div>
     </div>
+  );
+}
+function Badge({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className={`inline-flex items-center rounded-full text-xs font-semibold ${className}`}>
+      {children}
+    </span>
   );
 }
