@@ -4,12 +4,13 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 const navLinks = [
+  { name: 'About', href: '#about' },
   { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Trends', href: '#trends' },
   { name: 'Opportunity', href: '#opportunity' },
-  { name: 'Partnership', href: '#partnership' },
+  { name: 'Timeline', href: '#timeline' },
   { name: 'AI Future', href: '#ai-future' },
   { name: 'Teams', href: '#teams' },
-  { name: 'Contact', href: '#contact' },
 ];
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);

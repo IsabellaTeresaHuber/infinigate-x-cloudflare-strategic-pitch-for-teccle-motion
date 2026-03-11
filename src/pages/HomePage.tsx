@@ -16,6 +16,9 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { SectionHeader } from '@/components/PitchDeck/SectionHeader';
 import { FeatureCard } from '@/components/PitchDeck/FeatureCard';
 import { ContactForm } from '@/components/PitchDeck/ContactForm';
+import { AboutTeccle } from '@/components/PitchDeck/AboutTeccle';
+import { MarketTrends } from '@/components/PitchDeck/MarketTrends';
+import { OnboardingTimeline } from '@/components/PitchDeck/OnboardingTimeline';
 import { AISection } from '@/components/PitchDeck/AISection';
 import { CTABanner } from '@/components/PitchDeck/CTABanner';
 import { PortfolioShowcase } from '@/components/PitchDeck/PortfolioShowcase';
@@ -42,8 +45,13 @@ export function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center space-y-8"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
               <span className="text-2xl font-black text-infinigate tracking-tighter">INFINIGATE</span>
+              <div className="h-6 w-px bg-border/50" />
+              <div className="flex items-center gap-2 bg-foreground/5 px-4 py-2 rounded-full border border-border/50">
+                <div className="w-5 h-5 rounded-full bg-gradient-brand shadow-sm" />
+                <span className="text-xl font-black tracking-tighter">teccle motion</span>
+              </div>
               <div className="h-6 w-px bg-border/50" />
               <span className="text-2xl font-black text-cloudflare tracking-tighter">CLOUDFLARE</span>
             </div>
@@ -65,6 +73,9 @@ export function HomePage() {
           </motion.div>
         </div>
       </section>
+      {/* About Teccle Section */}
+      <AboutTeccle />
+      
       {/* Portfolio Showcase Section */}
       <section id="portfolio" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 scroll-mt-24">
         <SectionHeader
@@ -76,8 +87,17 @@ export function HomePage() {
         <div className="mt-20">
           <h3 className="text-2xl font-bold mb-10 text-center">Technical & Business Comparison</h3>
           <ComparisonTable />
+          <div className="mt-12 text-center">
+            <Button size="lg" className="bg-gradient-brand text-white font-bold h-12 rounded-xl" asChild>
+              <a href="#contact">Request Technical Deep-Dive</a>
+            </Button>
+          </div>
         </div>
       </section>
+      
+      {/* Market Trends Section */}
+      <MarketTrends />
+
       {/* Why Teccle Motion? */}
       <section id="opportunity" className="bg-secondary/30 border-y border-border/50 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
@@ -131,6 +151,10 @@ export function HomePage() {
           </div>
         </div>
       </section>
+      
+      {/* Onboarding Timeline Section */}
+      <OnboardingTimeline />
+
       {/* AI Section */}
       <AISection />
       {/* Infinigate Edge */}
